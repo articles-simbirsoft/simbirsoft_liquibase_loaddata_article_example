@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/migrations/db.changelog-0.2-importToSimbirsoftOfficesTable.yaml
+  - changeSet:
+      id: 002_import_csv_to_simbirsoft_offices_table
+      author: TreatHunter
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  index: 4 # индекс обозначает порядковый номер столца csv
+                  name: id # название столбца таблицы в базе данных
+              - column:
+                  header: Город # вместо индекса можно и использовать название столбца в csv
+                  name: city
+              - column:
+                  index: 1
+                  name: index
+              - column:
+                  index: 2
+                  name: address
+              - column:
+                  index: 3
+                  name: is_head
+            tableName: simbirsoft_offices
+            encoding: UTF-8 # кодировка csv файла если она UTF-8 можно этот параметр не ставить
+            separator: ',' # символ разделяющий столбцы в файле. Если это запятая то параметр можно пропустить
+            quotchar: '"' # в какие кавычки будут экранироваться элемент строки если в нем есть знак разделяющий столбцы. По умолчанию "
+            file:  "db/changelog/csv/changelog-0.2-importToSimbirsoftOfficesTable/SimbirsoftOffices.csv"

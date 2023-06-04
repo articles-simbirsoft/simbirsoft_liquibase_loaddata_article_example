@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/migrations/db.changelog-0.4-updateOfficesWithLoadUpdateData.yaml
+  - changeSet:
+      id: 004_update_simbirsoft_offices_table_with_LoadUpdateData
+      author: TreatHunter
+      changes:
+        - loadUpdateData:
+            columns:
+              - column:
+                  index: 4
+                  name: id
+              - column:
+                  header: Город
+                  name: city
+              - column:
+                  index: 1
+                  name: index
+              - column:
+                  index: 2
+                  name: address
+              - column:
+                  index: 3
+                  name: is_head
+            tableName: simbirsoft_offices
+            primaryKey: id # названия столбца таблицы а не файла csv по которому будет проверяться наличие данной строки
+            file:  "db/changelog/csv/changelog-0.4-updateOfficesWithLoadUpdateData/SimbirsoftOffices v2.csv"

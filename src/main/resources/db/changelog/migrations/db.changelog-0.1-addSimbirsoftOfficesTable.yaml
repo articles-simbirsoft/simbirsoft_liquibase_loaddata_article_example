@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/migrations/db.changelog-0.1-addSimbirsoftOfficesTable.yaml
+  - changeSet:
+      id: 001_create_simbirsoft_offices_table
+      author: TreatHunter
+      changes:
+        - createTable:
+            tableName: simbirsoft_offices
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: city
+                  type: varchar(100)
+              - column:
+                  name: index
+                  type: int
+              - column:
+                  name: address
+                  type: varchar(255)
+              - column:
+                  name: is_head
+                  type: boolean
+

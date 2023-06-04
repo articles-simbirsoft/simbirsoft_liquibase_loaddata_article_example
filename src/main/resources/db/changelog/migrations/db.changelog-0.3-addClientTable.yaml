@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/migrations/db.changelog-0.3-addClientTable.yaml
+  - changeSet:
+      id: 003_create_client_table
+      author: TreatHunter
+      changes:
+        - createTable:
+            tableName: client_entity
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: simbirsoft_offices_id
+                  type: int
+                  constraints:
+                    foreignKeyName: client_simbirsoft_offices_id
+                    references: simbirsoft_offices(id)
+
